@@ -1,4 +1,4 @@
-# NAME
+# NAME [![Build Status](https://travis-ci.org/tokubass/p5-EPUB-Extractor.png)](https://travis-ci.org/tokubass/p5-EPUB-Extractor)
 
 EPUB::Extractor - abstract...
 
