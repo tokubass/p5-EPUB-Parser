@@ -69,3 +69,30 @@ sub load_file   { _load_epub(@_, 'load_file'  ) };
 sub load_binary { _load_epub(@_, 'load_binary') };
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+EPUB::Extractor - abstract...
+
+=head1 SYNOPSIS
+
+
+=head1 DESCRIPTION
+
+=head1 LICENSE
+
+Copyright (C) tokubass.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+tokubass <tokubass@cpan.org>
+
+=cut
+

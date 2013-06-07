@@ -1,14 +1,12 @@
 # NAME
 
-EPUB::Extractor - It's new $module
+EPUB::Extractor - abstract...
 
 # SYNOPSIS
 
-    use EPUB::Extractor;
+
 
 # DESCRIPTION
-
-EPUB::Extractor is ...
 
 # LICENSE
 
