@@ -1,4 +1,4 @@
-package EPUB::Extractor::Util::AttributePacker;
+package EPUB::Parser::Util::AttributePacker;
 use strict;
 use warnings;
 use Carp;

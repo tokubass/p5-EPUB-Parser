@@ -1,16 +1,16 @@
-package EPUB::Extractor::File::OPF;
+package EPUB::Parser::File::OPF;
 use strict;
 use warnings;
 use Carp;
-use EPUB::Extractor::File::Parser::OPF;
-use EPUB::Extractor::File::OPF::Context;
-use EPUB::Extractor::File::Container;
+use EPUB::Parser::File::Parser::OPF;
+use EPUB::Parser::File::OPF::Context;
+use EPUB::Parser::File::Container;
 use Smart::Args;
 
 sub new {
     args(
         my $class => 'ClassName',
-        my $zip   => { isa => 'EPUB::Extractor::Util::Archive' },
+        my $zip   => { isa => 'EPUB::Parser::Util::Archive' },
         my $epub_version,
     );
 
@@ -26,14 +26,14 @@ sub parser {
     my $self = shift;
 
     $self->{parser}
-        ||= EPUB::Extractor::File::Parser::OPF->new({ data => $self->data });
+        ||= EPUB::Parser::File::Parser::OPF->new({ data => $self->data });
 }
 
 sub path {
     my $self = shift;
 
     $self->{path} ||= do {
-        my $container = EPUB::Extractor::File::Container->new({ zip => $self->{zip} });
+        my $container = EPUB::Parser::File::Container->new({ zip => $self->{zip} });
         $container->opf_path;
     };
 }
@@ -55,7 +55,7 @@ sub context {
     my $context_name = shift;
     return $self->{$context_name} if $self->{$context_name};
 
-    $self->{$context_name} = EPUB::Extractor::File::OPF::Context->new({
+    $self->{$context_name} = EPUB::Parser::File::OPF::Context->new({
         opf       => $self,
         parser    => $self->parser,
         context_name => $context_name,

@@ -4,14 +4,14 @@ use warnings;
 use utf8;
 
 use File::Slurp qw/read_file/;
-use EPUB::Extractor;
+use EPUB::Parser;
 
-my $ee = EPUB::Extractor->new;
+my $ee = EPUB::Parser->new;
 $ee->load_file({ file_path  => 't/var/denden_converter.epub' });
 
 is($ee->navi->path, 'OEBPS/nav.xhtml', 'path');
 ok( length $ee->navi->data, 'data');
-is( ref $ee->navi->parser, 'EPUB::Extractor::File::Parser::Navi', 'parser');
+is( ref $ee->navi->parser, 'EPUB::Parser::File::Parser::Navi', 'parser');
 
 is_deeply($ee->navi->toc->list, [
     { title => 'このコンテンツについて', href => 'bodymatter_0_0.xhtml#toc_index_1' },

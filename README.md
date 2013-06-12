@@ -1,6 +1,6 @@
-# NAME [![Build Status](https://travis-ci.org/tokubass/p5-EPUB-Extractor.png)](https://travis-ci.org/tokubass/p5-EPUB-Extractor)
+# NAME [![Build Status](https://travis-ci.org/tokubass/p5-EPUB-Parser.png)](https://travis-ci.org/tokubass/p5-EPUB-Parser)
 
-EPUB::Extractor - abstract...
+EPUB::Parser - abstract...
 
 # SYNOPSIS
 

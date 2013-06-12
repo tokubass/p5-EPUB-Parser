@@ -1,14 +1,14 @@
-package EPUB::Extractor::File::OPF::Context;
+package EPUB::Parser::File::OPF::Context;
 use strict;
 use warnings;
 use Smart::Args;
 use Scalar::Util qw/weaken/;
-use EPUB::Extractor::Util::Context qw/child_class context_name parser/;
+use EPUB::Parser::Util::Context qw/child_class context_name parser/;
 
 sub new {
     args(
         my $class  => 'ClassName',
-        my $opf    => { isa => 'EPUB::Extractor::File::OPF' },
+        my $opf    => { isa => 'EPUB::Parser::File::OPF' },
         my $context_name => 'Str',
         my $parser,
     );

@@ -1,8 +1,8 @@
-package EPUB::Extractor::File::Navi::Context;
+package EPUB::Parser::File::Navi::Context;
 use strict;
 use warnings;
 use Smart::Args;
-use EPUB::Extractor::Util::Context qw/child_class context_name parser/;
+use EPUB::Parser::Util::Context qw/child_class context_name parser/;
 
 sub new {
     args(

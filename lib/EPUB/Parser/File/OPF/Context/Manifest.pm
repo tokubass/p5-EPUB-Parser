@@ -1,10 +1,10 @@
-package EPUB::Extractor::File::OPF::Context::Manifest;
+package EPUB::Parser::File::OPF::Context::Manifest;
 use strict;
 use warnings;
 use Carp;
 use Smart::Args;
-use base 'EPUB::Extractor::File::OPF::Context';
-use EPUB::Extractor::Util::AttributePacker;
+use base 'EPUB::Parser::File::OPF::Context';
+use EPUB::Parser::Util::AttributePacker;
 
 sub nav_path {
     my $self = shift;
@@ -34,13 +34,13 @@ sub cover_image_path {
 sub attr_by_media_type {
     my $self = shift;
     my $nodes = $self->parser->find('pkg:item');
-    EPUB::Extractor::Util::AttributePacker->grouped_list($nodes, { group => 'media-type'});
+    EPUB::Parser::Util::AttributePacker->grouped_list($nodes, { group => 'media-type'});
 }
 
 sub attr_by_id {
     my $self = shift;
     my $nodes = $self->parser->find('pkg:item');
-    EPUB::Extractor::Util::AttributePacker->by_uniq_key($nodes, { key => 'id'});
+    EPUB::Parser::Util::AttributePacker->by_uniq_key($nodes, { key => 'id'});
 }
 
 sub attr_by_spine {

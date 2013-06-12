@@ -2,16 +2,16 @@ use Test::More;
 use strict;
 use warnings;
 use File::Slurp qw/read_file/;
-use EPUB::Extractor;
+use EPUB::Parser;
 
-subtest 'EPUB::Extractor::load_file' => sub {
-    my $ee = EPUB::Extractor->new;
+subtest 'EPUB::Parser::load_file' => sub {
+    my $ee = EPUB::Parser->new;
     eval { $ee->load_file({ file_path  => 't/var/denden_converter.epub' }) };
     is($@,'', 'load_file');
 };
 
-subtest 'EPUB::Extractor::load_binary' => sub {
-    my $ee = EPUB::Extractor->new;
+subtest 'EPUB::Parser::load_binary' => sub {
+    my $ee = EPUB::Parser->new;
     my $bin_data = read_file( 't/var/denden_converter.epub', binmode => ':raw' );
 
     local $@;

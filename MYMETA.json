@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "EPUB-Extractor",
+   "name" : "EPUB-Parser",
    "no_index" : {
       "directory" : [
          "t",
@@ -61,13 +61,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/tokubass/p5-EPUB-Extractor/issues"
+         "web" : "https://github.com/tokubass/p5-EPUB-Parser/issues"
       },
-      "homepage" : "https://github.com/tokubass/p5-EPUB-Extractor",
+      "homepage" : "https://github.com/tokubass/p5-EPUB-Parser",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/tokubass/p5-EPUB-Extractor.git",
-         "web" : "https://github.com/tokubass/p5-EPUB-Extractor"
+         "url" : "git://github.com/tokubass/p5-EPUB-Parser.git",
+         "web" : "https://github.com/tokubass/p5-EPUB-Parser"
       }
    },
    "version" : "0.01",

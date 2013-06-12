@@ -1,8 +1,8 @@
-package EPUB::Extractor::File::Container;
+package EPUB::Parser::File::Container;
 use strict;
 use warnings;
 use Carp;
-use EPUB::Extractor::File::Parser::Container;
+use EPUB::Parser::File::Parser::Container;
 
 use constant FILE_PATH => 'META-INF/container.xml';
 
@@ -20,7 +20,7 @@ sub new {
 sub parser {
     my $self = shift;
     $self->{parser}
-        ||= EPUB::Extractor::File::Parser::Container->new({ data => $self->data });
+        ||= EPUB::Parser::File::Parser::Container->new({ data => $self->data });
 }
 
 sub data {

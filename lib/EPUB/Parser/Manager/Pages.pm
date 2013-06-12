@@ -1,4 +1,4 @@
-package EPUB::Extractor::Manager::Pages;
+package EPUB::Parser::Manager::Pages;
 use strict;
 use warnings;
 use Smart::Args;

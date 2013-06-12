@@ -1,8 +1,8 @@
-package EPUB::Extractor::File::OPF::Context::Guide;
+package EPUB::Parser::File::OPF::Context::Guide;
 use strict;
 use warnings;
 use Carp;
-use base 'EPUB::Extractor::File::OPF::Context';
+use base 'EPUB::Parser::File::OPF::Context';
 
 sub list {
     my $self = shift;

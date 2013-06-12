@@ -1,4 +1,4 @@
-package EPUB::Extractor::Util::Archive;
+package EPUB::Parser::Util::Archive;
 use strict;
 use warnings;
 use Carp;
@@ -35,11 +35,11 @@ sub get_members {
     my $args = shift || {};
     $args->{zip} = $self;
 
-    EPUB::Extractor::Util::Archive::Iterator->new($args);
+    EPUB::Parser::Util::Archive::Iterator->new($args);
 }
 
 
-package EPUB::Extractor::Util::Archive::Iterator;
+package EPUB::Parser::Util::Archive::Iterator;
 use strict;
 use warnings;
 use Carp;
@@ -49,7 +49,7 @@ use Archive::Zip qw( AZ_OK );
 sub new {
     args(
         my $class => 'ClassName',
-        my $zip   => { isa => 'EPUB::Extractor::Util::Archive'},
+        my $zip   => { isa => 'EPUB::Parser::Util::Archive'},
         my $files_path => 'ArrayRef[Str]',
     );
 

@@ -1,13 +1,13 @@
-package EPUB::Extractor;
+package EPUB::Parser;
 use 5.008005;
 use strict;
 use warnings;
 use Carp;
-use EPUB::Extractor::Util::EpubLoad;
-use EPUB::Extractor::Util::Archive;
-use EPUB::Extractor::File::OPF;
-use EPUB::Extractor::File::Navi;
-use EPUB::Extractor::Manager::Pages;
+use EPUB::Parser::Util::EpubLoad;
+use EPUB::Parser::Util::Archive;
+use EPUB::Parser::File::OPF;
+use EPUB::Parser::File::Navi;
+use EPUB::Parser::Manager::Pages;
 
 our $VERSION = "0.01";
 
@@ -26,7 +26,7 @@ sub new {
 sub opf {
     my $self = shift;
 
-    $self->{opf} ||= EPUB::Extractor::File::OPF->new({
+    $self->{opf} ||= EPUB::Parser::File::OPF->new({
         zip          => $self->{zip},
         epub_version => $self->{epub_version},
     });
@@ -35,7 +35,7 @@ sub opf {
 sub navi {
     my $self = shift;
 
-    $self->{navi} ||= EPUB::Extractor::File::Navi->new({
+    $self->{navi} ||= EPUB::Parser::File::Navi->new({
         zip  => $self->{zip},
         path => $self->opf->nav_path,
     });
@@ -49,7 +49,7 @@ sub data_from_path {
 
 sub pages_manager {
     my $self = shift;
-    $self->{pages_manager} ||= EPUB::Extractor::Manager::Pages->new({
+    $self->{pages_manager} ||= EPUB::Parser::Manager::Pages->new({
         opf  => $self->opf,
         navi => $self->navi,
     });
@@ -59,8 +59,8 @@ sub pages_manager {
 sub _load_epub {
     my ($self,$args,$method) = @_;
     $self->{zip} ||= do {
-        my $data = EPUB::Extractor::Util::EpubLoad->$method($args);
-        EPUB::Extractor::Util::Archive->new({ data => $data });
+        my $data = EPUB::Parser::Util::EpubLoad->$method($args);
+        EPUB::Parser::Util::Archive->new({ data => $data });
     };
     return $self;
 }
@@ -76,7 +76,7 @@ __END__
 
 =head1 NAME
 
-EPUB::Extractor - abstract...
+EPUB::Parser - abstract...
 
 =head1 SYNOPSIS
 

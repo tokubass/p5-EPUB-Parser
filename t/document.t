@@ -4,16 +4,16 @@ use warnings;
 use utf8;
 
 use File::Slurp qw/read_file/;
-use EPUB::Extractor;
-use EPUB::Extractor::File::Document;
+use EPUB::Parser;
+use EPUB::Parser::File::Document;
 
-my $ee = EPUB::Extractor->new;
+my $ee = EPUB::Parser->new;
 $ee->load_file({ file_path  => 't/var/denden_converter.epub' });
 
 my %ret;
 my $it = $ee->opf->manifest->items_by_spine;
 while ( my $member = $it->next ) {
-    my $doc = EPUB::Extractor::File::Document->new({ archive_doc => $member });
+    my $doc = EPUB::Parser::File::Document->new({ archive_doc => $member });
     $ret{$doc->path} = $doc->item_abs_paths;
 }
 
