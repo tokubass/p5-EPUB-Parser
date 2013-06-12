@@ -48,21 +48,6 @@ sub items_node {
     ( $self->parser->find('//*/@href'), $self->parser->find('//*/@src') );
 }
 
-=head1
-
-{
-  xhtml内の(src or href)パス => 絶対パス
-  ....
-},
-サービス側で、manifestに記載されているアイテムをDBにアップロード。
-ここで、サービス側は manifestに記載のitemのパス(絶対パスに置換) -> サービス内のリンクが対応として保存できる。
-
-サービスでxhtmlをパースしているときに、「xhtml内の(src or href)パス」が発見したら、このメソッドの戻り値から絶対パスを取得。
-絶対パスからサービス内のリンクに書き替えることができる。
-
-
-=cut
-
 sub item_abs_paths {
     my $self = shift;
     my $ret;
