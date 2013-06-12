@@ -39,7 +39,7 @@ sub tree {
 
     my $tree = {
         tree => [],
-        no_chapter_membner =>[],
+        no_chapter_member => [],
     };
 
     my $chapter_paths = $self->{navi}->chapter_list({ abs => 1 });
