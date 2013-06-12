@@ -19,5 +19,10 @@ subtest 'EPUB::Parser::load_binary' => sub {
     is($@,'', 'read_binary');
 };
 
+subtest 'EPUB::Parser::data_from_path' => sub {
+    my $ee = EPUB::Parser->new;
+    $ee->load_file({ file_path  => 't/var/denden_converter.epub' });
+    ok( length $ee->data_from_path('OEBPS/nav.xhtml'), 'data_from_path' );
+};
 
 done_testing;
