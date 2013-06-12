@@ -1,10 +1,10 @@
 {
    "abstract" : "abstract...",
    "author" : [
-      "tokubass"
+      "tokubass <tokubass@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.4.7, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Minilla/v0.4.7, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -46,6 +46,7 @@
             "Carp" : "0",
             "IO::String" : "0",
             "Smart::Args" : "0",
+            "URI" : "0",
             "XML::LibXML" : "0",
             "XML::LibXML::XPathContext" : "0",
             "parent" : "0",
