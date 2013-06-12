@@ -115,4 +115,34 @@ subtest 'items_by_media' => sub {
     }
 };
 
+subtest 'items_by_media_type' => sub {
+    my $manifest = $ee->opf->manifest;
+
+    subtest 'single media_type' => sub {
+        my $it = $manifest->items_by_media_type({ regexp => qr{ text/css }ix });
+        is($it->size, 1, 'items_by_media_type size');
+    
+        while ( my $member = $it->next ) {
+            is($member->path, 'OEBPS/style.css');
+        }
+    };
+
+    subtest 'multi media_type' => sub {
+        my $it = $manifest->items_by_media_type({ regexp => qr{ text/css | image/png }ix });
+        is($it->size, 3, 'items_by_media_type size');
+    
+        my $got;
+        while ( my $member = $it->next ) {
+            $got->{$member->path} = 1;
+        }
+
+        is_deeply($got, {
+            'OEBPS/style.css' => 1,
+            'OEBPS/cover.png' => 1,
+            'OEBPS/fig01.png' => 1,
+        });
+    };
+
+};
+
 done_testing;
