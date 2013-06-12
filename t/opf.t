@@ -4,13 +4,13 @@ use warnings;
 use utf8;
 
 use File::Slurp qw/read_file/;
-use EPUB::Extractor;
+use EPUB::Parser;
 
-my $ee = EPUB::Extractor->new;
+my $ee = EPUB::Parser->new;
 $ee->load_file({ file_path  => 't/var/denden_converter.epub' });
 my $opf = $ee->opf;
 
-is( ref $opf->parser, 'EPUB::Extractor::File::Parser::OPF', 'opf_parser' );
+is( ref $opf->parser, 'EPUB::Parser::File::Parser::OPF', 'opf_parser' );
 is($opf->path, 'OEBPS/content.opf', 'opf_path');
 is($opf->dir, 'OEBPS', 'opf_dir');
 ok(length $opf->data, 'opf_data');

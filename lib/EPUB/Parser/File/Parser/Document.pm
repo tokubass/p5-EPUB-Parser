@@ -1,8 +1,8 @@
-package EPUB::Extractor::File::Parser::Navi;
+package EPUB::Parser::File::Parser::Document;
 use strict;
 use warnings;
 use Carp;
-use base 'EPUB::Extractor::File::Parser';
+use base 'EPUB::Parser::File::Parser';
 
 sub new {
     my $class = shift;
@@ -24,8 +24,6 @@ sub set_xhtml_namespace {
     my $xhtml_ns = $self->{doc}->documentElement()->getAttribute('xmlns');
     $self->{parser}->registerNs( xhtml => $xhtml_ns );
 }
-
-sub in_toc { shift->context_node( 'toc' ) }
 
 1;
 

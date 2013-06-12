@@ -2,7 +2,7 @@ use strict;
 use Test::More;
 
 use_ok $_ for qw(
-    EPUB::Extractor
+    EPUB::Parser
 );
 
 done_testing;

@@ -1,4 +1,4 @@
-package EPUB::Extractor::Util::EpubLoad;
+package EPUB::Parser::Util::EpubLoad;
 use strict;
 use warnings;
 use Carp;
