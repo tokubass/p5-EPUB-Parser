@@ -1,11 +1,11 @@
 use Test::More;
 use strict;
 use warnings;
-use EPUB::Extractor;
+use EPUB::Parser;
 use Archive::Zip qw/ AZ_OK /;
 use Data::Dumper;
 
-my $ee = EPUB::Extractor->new;
+my $ee = EPUB::Parser->new;
 $ee->load_file({ file_path  => 't/var/denden_converter.epub' });
 
 my $tree = $ee->pages_manager->tree;

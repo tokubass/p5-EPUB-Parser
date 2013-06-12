@@ -1,14 +1,14 @@
-package EPUB::Extractor::File::Navi;
+package EPUB::Parser::File::Navi;
 use strict;
 use warnings;
 use Smart::Args;
-use EPUB::Extractor::File::Parser::Navi;
-use EPUB::Extractor::File::Navi::Context;
+use EPUB::Parser::File::Parser::Navi;
+use EPUB::Parser::File::Navi::Context;
 
 sub new {
     args(
         my $class => 'ClassName',
-        my $zip   => { isa => 'EPUB::Extractor::Util::Archive' },
+        my $zip   => { isa => 'EPUB::Parser::Util::Archive' },
         my $path  => 'Str',
     );
 
@@ -25,7 +25,7 @@ sub new {
 sub parser {
     my $self = shift;
     $self->{parser}
-        ||= EPUB::Extractor::File::Parser::Navi->new({ data => $self->data });
+        ||= EPUB::Parser::File::Parser::Navi->new({ data => $self->data });
 }
 
 sub path {
@@ -49,7 +49,7 @@ sub context {
     my $context_name = shift;
     return $self->{$context_name} if $self->{$context_name};
 
-    $self->{$context_name} = EPUB::Extractor::File::Navi::Context->new({
+    $self->{$context_name} = EPUB::Parser::File::Navi::Context->new({
         parser       => $self->parser,
         context_name => $context_name,
     });

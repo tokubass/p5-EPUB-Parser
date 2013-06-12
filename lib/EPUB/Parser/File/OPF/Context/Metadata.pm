@@ -1,8 +1,8 @@
-package EPUB::Extractor::File::OPF::Context::Metadata;
+package EPUB::Parser::File::OPF::Context::Metadata;
 use strict;
 use warnings;
 use Carp;
-use base 'EPUB::Extractor::File::OPF::Context';
+use base 'EPUB::Parser::File::OPF::Context';
 
 
 sub title      { shift->parser->single( 'dc:title'      )->string_value }

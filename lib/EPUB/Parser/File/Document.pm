@@ -1,13 +1,13 @@
-package EPUB::Extractor::File::Document;
+package EPUB::Parser::File::Document;
 use strict;
 use warnings;
-use EPUB::Extractor::File::Parser::Document;
+use EPUB::Parser::File::Parser::Document;
 use Smart::Args;
 
 sub new {
     args(
         my $class => 'ClassName',
-        my $archive_doc => { isa => 'EPUB::Extractor::Util::Archive::Iterator' },
+        my $archive_doc => { isa => 'EPUB::Parser::Util::Archive::Iterator' },
     );
 
     my $self = bless {
@@ -23,7 +23,7 @@ sub parser {
     my $self = shift;
 
     $self->{parser}
-        ||= EPUB::Extractor::File::Parser::Document->new({ data => $self->data });
+        ||= EPUB::Parser::File::Parser::Document->new({ data => $self->data });
 }
 
 sub data {

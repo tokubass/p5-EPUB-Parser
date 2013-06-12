@@ -4,13 +4,13 @@ use warnings;
 use utf8;
 
 use File::Slurp qw/read_file/;
-use EPUB::Extractor;
+use EPUB::Parser;
 
-my $ee = EPUB::Extractor->new;
+my $ee = EPUB::Parser->new;
 $ee->load_file({ file_path  => 't/var/denden_converter.epub' });
 my $opf = $ee->opf;
 
-subtest 'EPUB::Extractor::File::OPF::in_manifest' => sub {
+subtest 'EPUB::Parser::File::OPF::in_manifest' => sub {
     my $answer = <<'MANIFEST';
 <manifest>
 <item media-type="image/png" href="cover.png" id="_cover.png" properties="cover-image" />
