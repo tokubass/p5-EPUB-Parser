@@ -6,9 +6,9 @@ use utf8;
 use File::Slurp qw/read_file/;
 use EPUB::Parser;
 
-my $ee = EPUB::Parser->new;
-$ee->load_file({ file_path  => 't/var/denden_converter.epub' });
-my $opf = $ee->opf;
+my $ep = EPUB::Parser->new;
+$ep->load_file({ file_path  => 't/var/denden_converter.epub' });
+my $opf = $ep->opf;
 
 subtest 'EPUB::Parser::File::OPF::Context::Spine::ordered_list' => sub {
     is_deeply($opf->spine->ordered_list,  [
@@ -26,7 +26,7 @@ subtest 'EPUB::Parser::File::OPF::Context::Spine::ordered_list' => sub {
 
 
 subtest 'EPUB::Parser::File::OPF::Context::Spine::attrs' => sub {
-    my $attrs = $ee->opf->spine->items_path;
+    my $attrs = $ep->opf->spine->items_path;
 
     is_deeply($attrs, [
         'cover.xhtml',
@@ -43,7 +43,7 @@ subtest 'EPUB::Parser::File::OPF::Context::Spine::attrs' => sub {
 
 
 subtest 'EPUB::Parser::File::OPF::Context::Spine::items_path' => sub {
-    my $href = $ee->opf->spine->items_path;
+    my $href = $ep->opf->spine->items_path;
 
     my $expected = [qw( cover.xhtml nav.xhtml bodymatter_0_0.xhtml bodymatter_0_1.xhtml bodymatter_0_2.xhtml bodymatter_0_3.xhtml
                    bodymatter_0_4.xhtml bodymatter_0_5.xhtml bodymatter_0_6.xhtml )];
@@ -53,7 +53,7 @@ subtest 'EPUB::Parser::File::OPF::Context::Spine::items_path' => sub {
 
 
 subtest 'EPUB::Parser::File::OPF::Context::Spine::items' => sub {
-    my $it = $ee->opf->spine->items;
+    my $it = $ep->opf->spine->items;
 
     is($it->size, 9, 'items_by_spine size');
 

@@ -7,11 +7,11 @@ use File::Slurp qw/read_file/;
 use EPUB::Parser;
 use EPUB::Parser::File::Document;
 
-my $ee = EPUB::Parser->new;
-$ee->load_file({ file_path  => 't/var/denden_converter.epub' });
+my $ep = EPUB::Parser->new;
+$ep->load_file({ file_path  => 't/var/denden_converter.epub' });
 
 my %ret;
-my $it = $ee->opf->spine->items;
+my $it = $ep->opf->spine->items;
 while ( my $member = $it->next ) {
     my $doc = EPUB::Parser::File::Document->new({ archive_doc => $member });
     $ret{$doc->path} = $doc->item_abs_paths;

@@ -5,10 +5,10 @@ use EPUB::Parser;
 use Archive::Zip qw/ AZ_OK /;
 use Data::Dumper;
 
-my $ee = EPUB::Parser->new;
-$ee->load_file({ file_path  => 't/var/denden_converter.epub' });
+my $ep = EPUB::Parser->new;
+$ep->load_file({ file_path  => 't/var/denden_converter.epub' });
 
-my $tree = $ee->pages_manager->get_page_from_each_chapter;
+my $tree = $ep->pages_manager->get_page_from_each_chapter;
 
 is_deeply($tree, {
     no_chapter_member => [
