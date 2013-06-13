@@ -6,9 +6,9 @@ use utf8;
 use File::Slurp qw/read_file/;
 use EPUB::Parser;
 
-my $ee = EPUB::Parser->new;
-$ee->load_file({ file_path  => 't/var/denden_converter.epub' });
-my $opf = $ee->opf;
+my $ep = EPUB::Parser->new;
+$ep->load_file({ file_path  => 't/var/denden_converter.epub' });
+my $opf = $ep->opf;
 
 subtest 'EPUB::Parser::File::OPF::in_manifest' => sub {
     my $answer = <<'MANIFEST';
@@ -76,7 +76,7 @@ subtest 'manifest->attr_by_id' => sub {
 };
 
 subtest 'items' => sub {
-    my $it = $ee->opf->manifest->items;
+    my $it = $ep->opf->manifest->items;
 
     is($it->size, 13, 'manifest_items size');
 
@@ -87,7 +87,7 @@ subtest 'items' => sub {
 
 
 subtest 'items_by_media' => sub {
-    my $it = $ee->opf->manifest->items_by_media;
+    my $it = $ep->opf->manifest->items_by_media;
     is($it->size, 2, 'items_by_media size');
     
     while ( my $member = $it->next ) {
@@ -96,7 +96,7 @@ subtest 'items_by_media' => sub {
 };
 
 subtest 'items_by_media_type' => sub {
-    my $manifest = $ee->opf->manifest;
+    my $manifest = $ep->opf->manifest;
 
     subtest 'single media_type' => sub {
         my $it = $manifest->items_by_media_type({ regexp => qr{ text/css }ix });
