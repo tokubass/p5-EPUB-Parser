@@ -75,26 +75,6 @@ subtest 'manifest->attr_by_id' => sub {
     is_deeply($list, $answer,'attr_by_id');
 };
 
-subtest 'spine_items_path' => sub {
-    my $href = $ee->opf->manifest->items_path_by_spine;
-
-    my $answer = [qw( cover.xhtml nav.xhtml bodymatter_0_0.xhtml bodymatter_0_1.xhtml bodymatter_0_2.xhtml bodymatter_0_3.xhtml
-                   bodymatter_0_4.xhtml bodymatter_0_5.xhtml bodymatter_0_6.xhtml )];
-
-    is_deeply($href, $answer, 'spine_items_path');
-};
-
-
-subtest 'items_by_spine' => sub {
-    my $it = $ee->opf->manifest->items_by_spine;
-
-    is($it->size, 9, 'items_by_spine size');
-
-    while ( my $member = $it->next ) {
-        ok(length $member->data, 'items_by_spine data');
-    }
-};
-
 subtest 'items' => sub {
     my $it = $ee->opf->manifest->items;
 
