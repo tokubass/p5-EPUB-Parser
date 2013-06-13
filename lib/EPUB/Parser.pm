@@ -97,7 +97,7 @@ __END__
      $zip_member->data;
  }
 
- # shortcut method. iterator object contain image,audio,video item.
+ # shortcut method. iterator object contain image,audio,video item path.
  my $itr = $ee->opf->manifest->items_by_media;
  while ( my $zip_member = $itr->next ) {
      $zip_member->data;
