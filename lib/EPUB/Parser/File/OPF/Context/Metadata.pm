@@ -2,7 +2,7 @@ package EPUB::Parser::File::OPF::Context::Metadata;
 use strict;
 use warnings;
 use Carp;
-use base 'EPUB::Parser::File::OPF::Context';
+use parent 'EPUB::Parser::File::OPF::Context';
 
 
 sub title      { shift->parser->single( 'dc:title'      )->string_value }

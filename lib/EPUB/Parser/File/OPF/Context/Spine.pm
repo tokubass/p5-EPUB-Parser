@@ -2,7 +2,7 @@ package EPUB::Parser::File::OPF::Context::Spine;
 use strict;
 use warnings;
 use Carp;
-use base 'EPUB::Parser::File::OPF::Context';
+use parent 'EPUB::Parser::File::OPF::Context';
 use EPUB::Parser::Util::AttributePacker;
 
 sub ordered_list {

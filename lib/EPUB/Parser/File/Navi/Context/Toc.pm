@@ -2,7 +2,7 @@ package EPUB::Parser::File::Navi::Context::Toc;
 use strict;
 use warnings;
 use Carp;
-use base 'EPUB::Parser::File::Navi::Context';
+use parent 'EPUB::Parser::File::Navi::Context';
 use List::Util qw/first/;
 
 # todo: nested

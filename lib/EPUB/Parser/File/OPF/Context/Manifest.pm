@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Carp;
 use Smart::Args;
-use base 'EPUB::Parser::File::OPF::Context';
+use parent 'EPUB::Parser::File::OPF::Context';
 use EPUB::Parser::Util::AttributePacker;
 
 sub nav_path {
