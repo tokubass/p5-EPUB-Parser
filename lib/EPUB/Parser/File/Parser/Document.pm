@@ -2,7 +2,7 @@ package EPUB::Parser::File::Parser::Document;
 use strict;
 use warnings;
 use Carp;
-use base 'EPUB::Parser::File::Parser';
+use parent 'EPUB::Parser::File::Parser';
 
 sub new {
     my $class = shift;
