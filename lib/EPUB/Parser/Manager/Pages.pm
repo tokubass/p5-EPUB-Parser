@@ -18,27 +18,13 @@ sub new {
     return $self;
 }
 
-# sub chapter {
-#     args(
-#         my $self,
-#         my $page_href,
-#     );
-#     my $abs_page_href = $page_href;
-
-#     my $ordered_paths = $self->{opf}->manifest->items_path_by_spine({ abs => 1 });
-#     for my $i (0..@$ordered_paths) {
-# #        if($abs_page_href eq $path)
-#     }
-    
-# }
-
-sub tree {
+sub get_page_from_each_chapter {
     args(
         my $self,
     );
 
     my $tree = {
-        tree => [],
+        chapter_group => [],
         no_chapter_member => [],
     };
 
@@ -61,7 +47,7 @@ sub tree {
     }
 
     for my $i ( reverse @chapter_index_on_spine ) {
-            unshift @{$tree->{tree}}, [splice(@$spine_paths,$i)];
+            unshift @{$tree->{chapter_group}}, [splice(@$spine_paths,$i)];
     }
 
     return $tree;
