@@ -11,7 +11,7 @@ my $ee = EPUB::Parser->new;
 $ee->load_file({ file_path  => 't/var/denden_converter.epub' });
 
 my %ret;
-my $it = $ee->opf->manifest->items_by_spine;
+my $it = $ee->opf->spine->items;
 while ( my $member = $it->next ) {
     my $doc = EPUB::Parser::File::Document->new({ archive_doc => $member });
     $ret{$doc->path} = $doc->item_abs_paths;
