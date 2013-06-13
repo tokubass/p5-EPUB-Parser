@@ -1,4 +1,4 @@
-# NAME [![Build Status](https://travis-ci.org/tokubass/p5-EPUB-Parser.png)](https://travis-ci.org/tokubass/p5-EPUB-Parser)
+# NAME
 
     EPUB::Parser - EPUB Parser class
 
