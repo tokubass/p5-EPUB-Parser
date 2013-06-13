@@ -19,13 +19,11 @@
     my $itr = $ee->opf->manifest->items_by_media_type({ regexp => qr{text/css}ix });
     while ( my $zip_member = $itr->next ) {
         $zip_member->data;
+        $zip_member->path;
     }
 
     # shortcut method. iterator object contain image,audio,video item path.
     my $itr = $ee->opf->manifest->items_by_media;
-    while ( my $zip_member = $itr->next ) {
-        $zip_member->data;
-    }
 
     # get list under <nav id="toc" epub:type="toc"> 
     # todo: parse nested list
