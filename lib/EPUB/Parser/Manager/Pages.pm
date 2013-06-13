@@ -43,7 +43,7 @@ sub tree {
     };
 
     my $chapter_paths = $self->{navi}->chapter_list({ abs => 1 });
-    my $spine_paths = $self->{opf}->manifest->items_path_by_spine({ abs => 1 });
+    my $spine_paths = $self->{opf}->spine->items_path({ abs => 1 });
     my %spine_paths;
     @spine_paths{@$spine_paths} = (0 .. @$spine_paths-1);
 

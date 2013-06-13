@@ -43,18 +43,6 @@ sub attr_by_id {
     EPUB::Parser::Util::AttributePacker->by_uniq_key($nodes, { key => 'id'});
 }
 
-sub attr_by_spine {
-    my $self = shift;
-
-    my $items;
-    my $attr_by_id = $self->attr_by_id;
-
-    for my $idref ( @{ $self->{opf}->spine->ordered_list || [] } ) {
-        push @$items, $attr_by_id->{$idref->{idref}};
-    }
-
-    return $items;
-}
 
 sub _items_path {
     args(
@@ -76,14 +64,6 @@ sub items_path {
     my $args = shift || {};
 
     my @href = map { $_->{href} } values %{ $self->attr_by_id || {} };
-
-    $self->_items_path({ %$args, href => \@href });
-}
-
-sub items_path_by_spine {
-    my $self = shift;
-    my $args = shift || {};
-    my @href = map { $_->{href} } @{ $self->attr_by_spine || [] };
 
     $self->_items_path({ %$args, href => \@href });
 }
@@ -120,10 +100,6 @@ sub items {
     $self->_items( $self->items_path({ abs => 1 }) );
 }
 
-sub items_by_spine {
-    my $self = shift;
-    $self->_items( $self->items_path_by_spine({ abs => 1 }) );
-}
 
 sub items_by_media {
     my $self = shift;
