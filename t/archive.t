@@ -6,17 +6,17 @@ use utf8;
 use File::Slurp qw/read_file/;
 use EPUB::Parser;
 
-my $ee = EPUB::Parser->new;
-$ee->load_file({ file_path  => 't/var/denden_converter.epub' });
+my $ep = EPUB::Parser->new;
+$ep->load_file({ file_path  => 't/var/denden_converter.epub' });
 
 subtest 'get single member data' => sub {
-    my $data = $ee->{zip}->get_member_data({ file_path => 'OEBPS/style.css' });
+    my $data = $ep->{zip}->get_member_data({ file_path => 'OEBPS/style.css' });
     ok($data);
 };
 
 
 subtest 'iterator' => sub {
-    my $it = $ee->{zip}->get_members({ files_path => [qw{OEBPS/style.css OEBPS/cover.png}] });
+    my $it = $ep->{zip}->get_members({ files_path => [qw{OEBPS/style.css OEBPS/cover.png}] });
     is(ref $it, 'EPUB::Parser::Util::Archive::Iterator', 'class name');
 
     subtest 'iterator size' => sub {

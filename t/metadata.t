@@ -6,9 +6,9 @@ use utf8;
 use File::Slurp qw/read_file/;
 use EPUB::Parser;
 
-my $ee = EPUB::Parser->new;
-$ee->load_file({ file_path  => 't/var/denden_converter.epub' });
-my $opf = $ee->opf;
+my $ep = EPUB::Parser->new;
+$ep->load_file({ file_path  => 't/var/denden_converter.epub' });
+my $opf = $ep->opf;
 
 subtest 'metadata_title' => sub {
     is($opf->metadata->title, 'テスト', 'metadata_title');

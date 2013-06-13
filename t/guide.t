@@ -6,9 +6,9 @@ use utf8;
 use File::Slurp qw/read_file/;
 use EPUB::Parser;
 
-my $ee = EPUB::Parser->new;
-$ee->load_file({ file_path  => 't/var/denden_converter.epub' });
-my $guide = $ee->opf->guide;
+my $ep = EPUB::Parser->new;
+$ep->load_file({ file_path  => 't/var/denden_converter.epub' });
+my $guide = $ep->opf->guide;
 
 is(ref $guide, 'EPUB::Parser::File::OPF::Context::Guide', 'guide class');
 
