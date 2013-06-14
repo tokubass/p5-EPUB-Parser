@@ -81,15 +81,15 @@ __END__
 =head1 SYNOPSIS
 
  use EPUB::Parser;
- my $ep = EPUB::Parser->newe({ epub_version => '3.0' }) #default 3.0 and current supoprt only 3.0
+ my $ep = EPUB::Parser->new;
 
- # load epub 
+ # load epub
  $ep->load_file({ file_path  => 'sample.epub' });
- # or 
- $ep->load_binary({ data  => $binary_data }) 
+ # or
+ $ep->load_binary({ data  => $binary_data })
 
  # get opf version
- my $version = $extract->opf->guess_version; 
+ my $version = $ep->opf->guess_version;
 
  # get css. Return value is 'EPUB::Parser::Util::Archive::Iterator' object.
  my $itr = $ep->opf->manifest->items_by_media_type({ regexp => qr{text/css}ix });
@@ -131,55 +131,51 @@ __END__
  #        ],
  #        ....
  #    ]
- 
 
 =head1 DESCRIPTION
 
- EPUB::Parser parse EPUB3 and return Perl Data Structure.
- This module can only parse EPUB3.
+EPUB::Parser parse EPUB3 and return Perl Data Structure.
+This module can only parse EPUB3.
 
 =head1 METHODS
 
 =head2 new(\%opts)
 
- Creates a new EPUB::Parser instance. Valid options are:
+Constructor.
+Creates a new EPUB::Parser instance. Valid options are:
 
 =over 4
 
 =item epub_version
 
- EPUB::Parser->new({ epub_version => '3.0' });
- epub_version is default 3.0 and current supoprt only 3.0.
+EPUB::Parser->new({ epub_version => '3.0' });
+epub_version is default 3.0 and current supoprt only 3.0.
 
 =back
 
 =head2 opf
 
- Returns instance of L<EPUB::Parser::File::OPF>.
+Returns instance of L<EPUB::Parser::File::OPF>.
 
 =head2 navi
 
- Returns instance of L<EPUB::Parser::File::Navi>.
+Returns instance of L<EPUB::Parser::File::Navi>.
 
 =head2 data_from_path($path)
 
- get blob from loaded EPUB with path indicated in $path.
+get blob from loaded EPUB with path indicated in $path.
 
 =head2 pages_manager
 
- Returns instance of L<EPUB::Parser::Manager::Pages>.
+Returns instance of L<EPUB::Parser::Manager::Pages>.
 
-=head2 load_file
+=head2 load_file({ file_path  => 'sample.epub' })
 
- load from EPUB file.
- $ep->load_file({ file_path  => 'sample.epub' });
+load from EPUB file.
 
+=head2 load_binary({ data  => $binary_data })
 
-=head2 load_binary
-
- load from EPUB blob.
- $ep->load_binary({ data  => $binary_data })
-
+load from EPUB blob.
 
 =head1 LICENSE
 
@@ -190,7 +186,7 @@ it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-tokubass <tokubass@cpan.org>
+tokubass E<lt>tokubass {at} cpan.orgE<gt>
 
 =cut
 
