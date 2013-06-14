@@ -97,3 +97,86 @@ sub guess_version {
 
 
 1;
+
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+ EPUB::Parser::File::OPF - parses opf file
+
+=head1 SYNOPSIS
+
+ use EPUB::Parser;
+ my $ep = EPUB::Parser->new->load_file({ file_path  => 'sample.epub' });
+ my $opf = $ep->opf;
+
+=head1 METHODS
+
+=head2 new(\%opts)
+
+Constructor.
+This method called from L<EPUB::Parser> object.
+$epub_parser->opf;
+
+=head2 parser
+
+Returns instance of L<EPUB::Parser::File::Parser::OPF>.
+
+=head2 path
+
+get opf file path from 'META-INF/container.xml'
+
+=head2 dir
+
+get directory path of opf file.
+File::Basename::dirname($self->path);
+
+=head2 data
+
+get blob of opf file from loaded EPUB
+
+=head2 spine
+
+Returns instance of L<EPUB::Parser::File::OPF::Context::Spine>.
+
+=head2 manifest
+
+Returns instance of L<EPUB::Parser::File::OPF::Context::Manifest>.
+
+=head2 metadata
+
+Returns instance of L<EPUB::Parser::File::OPF::Context::Metadata>.
+
+=head2 guide
+
+Returns instance of L<EPUB::Parser::File::OPF::Context::Guide>.
+
+=head2 nav_path
+
+get navigation file path from manifest.
+
+=head2 cover_image_path
+
+get cover image file from manifest.
+
+=head2 guess_version
+
+get opf version.
+return '3.0' if version is not found and navigation file exists.
+
+=head1 LICENSE
+
+Copyright (C) tokubass.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+tokubass E<lt>tokubass {at} cpan.orgE<gt>
+
+=cut
+
