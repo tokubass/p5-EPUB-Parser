@@ -116,3 +116,67 @@ sub items_by_media_type {
 
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+ EPUB::Parser::File::OPF::Context::Manifest - parses manifest node in opf file
+
+=head1 METHODS
+
+=head2 new(\%opts)
+
+Constructor.
+This method called from L<EPUB::Parser::File::OPF> object.
+my $manifest = $epub_parser->opf->manifest;
+
+=head2 nav_path
+
+Get navigation file path from item with the property 'nav'.
+
+=head2 cover_image_path
+
+Get cover image path from item with the property 'cover-image'.
+
+=head2 attr_by_media_tyep
+
+{
+
+    'image/png' =>  [{
+        href => "cover.png", id => "_cover.png", properties => "cover-image"
+    }, {
+        href => "fig01.png", id => "_fig01.png"
+    }],
+    'text/css' => [{
+        .....
+    }],
+}
+
+=head2 attr_by_id
+
+=head2 items_path
+
+=head2 items_path_by_media_type
+
+=head2 items
+
+=head2 items_by_media
+
+=head2 items_by_media_type
+
+=head1 LICENSE
+
+Copyright (C) tokubass.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+tokubass E<lt>tokubass {at} cpan.orgE<gt>
+
+=cut
+
