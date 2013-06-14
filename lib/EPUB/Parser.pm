@@ -138,6 +138,49 @@ __END__
  EPUB::Parser parse EPUB3 and return Perl Data Structure.
  This module can only parse EPUB3.
 
+=head1 METHODS
+
+=head2 new(\%opts)
+
+ Creates a new EPUB::Parser instance. Valid options are:
+
+=over 4
+
+=item epub_version
+
+ EPUB::Parser->new({ epub_version => '3.0' });
+ epub_version is default 3.0 and current supoprt only 3.0.
+
+=back
+
+=head2 opf
+
+ Returns instance of L<EPUB::Parser::File::OPF>.
+
+=head2 navi
+
+ Returns instance of L<EPUB::Parser::File::Navi>.
+
+=head2 data_from_path($path)
+
+ get blob from loaded EPUB with path indicated in $path.
+
+=head2 pages_manager
+
+ Returns instance of L<EPUB::Parser::Manager::Pages>.
+
+=head2 load_file
+
+ load from EPUB file.
+ $ep->load_file({ file_path  => 'sample.epub' });
+
+
+=head2 load_binary
+
+ load from EPUB blob.
+ $ep->load_binary({ data  => $binary_data })
+
+
 =head1 LICENSE
 
 Copyright (C) tokubass.
