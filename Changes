@@ -2,6 +2,9 @@ Revision history for Perl extension EPUB-Parser
 
 {{$NEXT}}
 
+    - Fix File::Slurp dependency
+    - Document fix
+
 0.01 2013-06-13T11:59:07Z
 
     - initial release
