@@ -26,19 +26,37 @@ subtest 'EPUB::Parser::File::OPF::Context::Spine::ordered_list' => sub {
 
 
 subtest 'EPUB::Parser::File::OPF::Context::Spine::attrs' => sub {
-    my $attrs = $ep->opf->spine->items_path;
+    my $attrs = $ep->opf->spine->attrs;
 
-    is_deeply($attrs, [
-        'cover.xhtml',
-        'nav.xhtml',
-        'bodymatter_0_0.xhtml',
-        'bodymatter_0_1.xhtml',
-        'bodymatter_0_2.xhtml',
-        'bodymatter_0_3.xhtml',
-        'bodymatter_0_4.xhtml',
-        'bodymatter_0_5.xhtml',
-        'bodymatter_0_6.xhtml'
-    ], 'attrs_by_spine');
+    is_deeply($attrs, [{
+        'href' => 'cover.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    },{
+        'href' => 'nav.xhtml',
+        'media-type' => 'application/xhtml+xml',
+        'properties' => 'nav'
+    },{
+        'href' => 'bodymatter_0_0.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    },{
+        'href' => 'bodymatter_0_1.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    },{
+        'href' => 'bodymatter_0_2.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    },{
+        'href' => 'bodymatter_0_3.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    },{
+        'href' => 'bodymatter_0_4.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    },{
+        'href' => 'bodymatter_0_5.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    },{
+        'href' => 'bodymatter_0_6.xhtml',
+        'media-type' => 'application/xhtml+xml'
+    }], 'attrs');
 };
 
 
