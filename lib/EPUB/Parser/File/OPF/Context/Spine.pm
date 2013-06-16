@@ -47,37 +47,37 @@ __END__
 
 =head1 NAME
 
- EPUB::Parser::File::OPF::Context::Spine - parses spine node in opf file
+EPUB::Parser::File::OPF::Context::Spine - parses spine node in opf file
 
 =head1 METHODS
 
 =head2 ordered_list
 
 Attribute of each child nodes of spine is added to hash.
-
 For exsample,
-[
-   { idref => "_cover.xhtml",  linear => "no"},
-   { idref => '_nav.xhtml' },
-   { idref => "_document_0_0.xhtml" },
-   ....
-]
+
+ [
+    { idref => "_cover.xhtml",  linear => "no"},
+    { idref => '_nav.xhtml' },
+    { idref => "_document_0_0.xhtml" },
+    ....
+ ]
 
 =head2 attrs
 
 Get Manifest infomation corresponding to Spine.
-
 For example,
-[{
-    'href' => 'cover.xhtml',
-    'media-type' => 'application/xhtml+xml'
-},{
-    'href' => 'nav.xhtml',
-    'media-type' => 'application/xhtml+xml',
-    'properties' => 'nav'
-},{
-    ...
-}]
+
+ [{
+     'href' => 'cover.xhtml',
+     'media-type' => 'application/xhtml+xml'
+ },{
+     'href' => 'nav.xhtml',
+     'media-type' => 'application/xhtml+xml',
+     'properties' => 'nav'
+ },{
+     ...
+ }]
 
 
 =head2 items_path

@@ -5,15 +5,15 @@
 # SYNOPSIS
 
     use EPUB::Parser;
-    my $ep = EPUB::Parser->newe({ epub_version => '3.0' }) #default 3.0 and current supoprt only 3.0
+    my $ep = EPUB::Parser->new;
 
-    # load epub 
+    # load epub
     $ep->load_file({ file_path  => 'sample.epub' });
-    # or 
-    $ep->load_binary({ data  => $binary_data }) 
+    # or
+    $ep->load_binary({ data  => $binary_data })
 
     # get opf version
-    my $version = $extract->opf->guess_version; 
+    my $version = $ep->opf->guess_version;
 
     # get css. Return value is 'EPUB::Parser::Util::Archive::Iterator' object.
     my $itr = $ep->opf->manifest->items_by_media_type({ regexp => qr{text/css}ix });
@@ -55,55 +55,47 @@
     #        ],
     #        ....
     #    ]
-    
-
-
 
 # DESCRIPTION
 
-    EPUB::Parser parse EPUB3 and return Perl Data Structure.
-    This module can only parse EPUB3.
+EPUB::Parser parse EPUB3 and return Perl Data Structure.
+This module can only parse EPUB3.
 
 # METHODS
 
 ## new(\\%opts)
 
-    Creates a new EPUB::Parser instance. Valid options are:
+Constructor.
+Creates a new EPUB::Parser instance. Valid options are:
 
 - epub\_version
 
-        EPUB::Parser->new({ epub_version => '3.0' });
-        epub_version is default 3.0 and current supoprt only 3.0.
+    EPUB::Parser->new({ epub\_version => '3.0' });
+    epub\_version is default 3.0 and current supoprt only 3.0.
 
 ## opf
 
-    Returns instance of L<EPUB::Parser::File::OPF>.
+Returns instance of [EPUB::Parser::File::OPF](http://search.cpan.org/perldoc?EPUB::Parser::File::OPF).
 
 ## navi
 
-    Returns instance of L<EPUB::Parser::File::Navi>.
+Returns instance of [EPUB::Parser::File::Navi](http://search.cpan.org/perldoc?EPUB::Parser::File::Navi).
 
 ## data\_from\_path($path)
 
-    get blob from loaded EPUB with path indicated in $path.
+get blob from loaded EPUB with path indicated in $path.
 
 ## pages\_manager
 
-    Returns instance of L<EPUB::Parser::Manager::Pages>.
+Returns instance of [EPUB::Parser::Manager::Pages](http://search.cpan.org/perldoc?EPUB::Parser::Manager::Pages).
 
-## load\_file
+## load\_file({ file\_path  => 'sample.epub' })
 
-    load from EPUB file.
-    $ep->load_file({ file_path  => 'sample.epub' });
+load from EPUB file.
 
+## load\_binary({ data  => $binary\_data })
 
-
-## load\_binary
-
-    load from EPUB blob.
-    $ep->load_binary({ data  => $binary_data })
-
-
+load from EPUB blob.
 
 # LICENSE
 
@@ -114,4 +106,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-tokubass <tokubass@cpan.org>
+tokubass <tokubass {at} cpan.org>
