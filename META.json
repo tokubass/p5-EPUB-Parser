@@ -1,10 +1,10 @@
 {
    "abstract" : "EPUB Parser class",
    "author" : [
-      "tokubass <tokubass@cpan.org>"
+      "tokubass <tokubass {at} cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.5.3, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Minilla/v0.5.3, CPAN::Meta::Converter version 2.131560",
    "license" : [
       "perl_5"
    ],
@@ -74,6 +74,7 @@
    },
    "version" : "0.02",
    "x_contributors" : [
-      "tokubass <tomi21110@gmail.com>"
+      "tokubass <tomi21110@gmail.com>",
+      "tokubass <tokubass@cpan.org>"
    ]
 }
