@@ -3,6 +3,7 @@ use 5.008005;
 use strict;
 use warnings;
 use Carp;
+use Smart::Args;
 use EPUB::Parser::Util::EpubLoad;
 use EPUB::Parser::Util::Archive;
 use EPUB::Parser::File::OPF;
@@ -30,6 +31,26 @@ sub opf {
         zip          => $self->{zip},
         epub_version => $self->{epub_version},
     });
+}
+
+sub another_opf {
+    args(
+        my $self => 'Object',
+        my $alias => 'Str',
+        my $full_path => 'Str',
+    );
+
+    return $self->{"opf_$alias"} if $self->{"opf_$alias"};
+
+    $self->{"opf_$alias"} = EPUB::Parser::File::OPF->new({
+        zip          => $self->{zip},
+        epub_version => $self->{epub_version},
+        full_path    => $full_path,
+    });
+
+    no strict 'refs';
+    *{__PACKAGE__ . "::opf_$alias"} = sub { $self->{"opf_$alias"} };
+
 }
 
 sub navi {

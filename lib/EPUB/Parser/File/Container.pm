@@ -30,7 +30,13 @@ sub data {
 
 sub opf_path {
     my $self = shift;
-    $self->{opf_path} ||= $self->parser->single('/container:container/container:rootfiles/container:rootfile[1]/@full-path')->string_value;
+    my $full_path = shift || '';
+    
+    my $xpath = $full_path
+            ? '/container:container/container:rootfiles/container:rootfile[1]/@full-path'
+            : '/container:container/container:rootfiles/container:rootfile[1]/@full-path';
+
+    $self->{opf_path} ||= $self->parser->single($xpath)->string_value;
 }
 
 1;

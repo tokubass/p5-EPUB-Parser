@@ -12,11 +12,13 @@ sub new {
         my $class => 'ClassName',
         my $zip   => { isa => 'EPUB::Parser::Util::Archive' },
         my $epub_version,
+        my $full_path => { optional => 1 },
     );
 
     my $self = bless {
         zip          => $zip,
         epub_version => $epub_version,
+        full_path    => $full_path,
     } => $class;
 
     return $self;
@@ -34,7 +36,7 @@ sub path {
 
     $self->{path} ||= do {
         my $container = EPUB::Parser::File::Container->new({ zip => $self->{zip} });
-        $container->opf_path;
+        $container->opf_path($self->{full_path});
     };
 }
 
