@@ -131,13 +131,24 @@ __END__
 
 Get navigation file path from item element with the property 'nav'.
 
-=head2 cover_image_path
+=head2 cover_image_path(\%opt)
 
 Get cover image path from item element with the property 'cover-image'.
+Valid options are:
+
+=over 4
+
+=item abs
+
+ $manifest->cover_image_path({ abs => 1 });
+ Get absolute path.
+
+=back
 
 =head2 attr_by_media_tyep({ regexp => qr{ ... }ix })
 
 Retrun in the following format.
+
  {
 
     'image/png' =>  [{
@@ -153,6 +164,7 @@ Retrun in the following format.
 =head2 attr_by_id
 
 Retrun in the following format.
+
  {
     "_cover.png"   => { "media-type" => "image/png", href => "cover.png", properties => "cover-image" },
     "_style.css"   => { "media-type" => "text/css",  href => "style.css" },
