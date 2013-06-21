@@ -28,7 +28,9 @@ subtest 'EPUB::Parser::File::OPF::nav_path' => sub {
 };
 
 subtest 'EPUB::Parser::File::OPF::cover_image_path' => sub {
-    is($ep->opf->cover_image_path, 'OEBPS/cover.png', 'abs cover img path');
+    is($ep->opf->cover_image_path, 'cover.png', 'rel cover img path');
+    is($ep->opf->cover_image_path({ abs => 1 }), 'OEBPS/cover.png', 'abs cover img path');
+
 };
 
 subtest 'EPUB::Parser::File::OPF::guess_version' => sub {

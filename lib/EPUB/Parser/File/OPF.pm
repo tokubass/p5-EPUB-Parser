@@ -73,7 +73,7 @@ sub nav_path {
 }
 
 sub cover_image_path {
-    shift->manifest->cover_image_path({ abs => 1 });
+    shift->manifest->cover_image_path(@_);
 }
 
 sub guess_version {
@@ -154,9 +154,10 @@ Returns instance of L<EPUB::Parser::File::OPF::Context::Guide>.
 
 Returns navigation file path from manifest.
 
-=head2 cover_image_path
+=head2 cover_image_path(\%opt)
 
-Returns cover image file absolute path from manifest.
+Shortcut method.
+see L<EPUB::Parser::File::OPF::Context::Manifest>.
 
 =head2 guess_version
 
