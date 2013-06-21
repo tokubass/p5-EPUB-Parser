@@ -9,7 +9,7 @@ use EPUB::Parser::File::OPF;
 use EPUB::Parser::File::Navi;
 use EPUB::Parser::Manager::Pages;
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 
 sub new {
