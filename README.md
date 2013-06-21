@@ -33,7 +33,7 @@
     }
 
     # get cover image blob
-    my $cover_img_path = $ep->opf->manifest->cover_image_path({ abs => 1 });
+    my $cover_img_path = $ep->opf->cover_image_path;
     $ep->data_from_path($cover_img_path);
 
     # get page list from each chapter.
