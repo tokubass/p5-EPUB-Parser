@@ -36,7 +36,7 @@ MANIFEST
 };
 
 
-subtest 'manifest->attr_by_media_type' => sub {
+subtest 'EPUB::Parser::File::OPF::Context::Manifest::attr_by_media_type' => sub {
     my $list = $opf->manifest->attr_by_media_type;
     is_deeply( $list->{'image/png'}, [{ href => "cover.png", id => "_cover.png", properties => "cover-image" }, { href => "fig01.png", id => "_fig01.png"}] );
     is_deeply( $list->{'text/css'},  [{ href => "style.css", id => "_style.css" }] );
@@ -54,7 +54,7 @@ subtest 'manifest->attr_by_media_type' => sub {
     }], 'manifest->attr_by_media_type');
 };
 
-subtest 'manifest->attr_by_id' => sub {
+subtest 'EPUB::Parser::File::OPF::Context::Manifest::attr_by_id' => sub {
     my $list = $opf->manifest->attr_by_id;
     my $answer = {
         "_cover.png" => { "media-type" => "image/png", href => "cover.png", properties => "cover-image" },
@@ -75,7 +75,7 @@ subtest 'manifest->attr_by_id' => sub {
     is_deeply($list, $answer,'attr_by_id');
 };
 
-subtest 'items' => sub {
+subtest 'EPUB::Parser::File::OPF::Context::Manifest::items' => sub {
     my $it = $ep->opf->manifest->items;
 
     is($it->size, 13, 'manifest_items size');
@@ -86,7 +86,7 @@ subtest 'items' => sub {
 };
 
 
-subtest 'items_by_media' => sub {
+subtest 'EPUB::Parser::File::OPF::Context::Manifest::items_by_media' => sub {
     my $it = $ep->opf->manifest->items_by_media;
     is($it->size, 2, 'items_by_media size');
     
@@ -95,7 +95,7 @@ subtest 'items_by_media' => sub {
     }
 };
 
-subtest 'items_by_media_type' => sub {
+subtest 'EPUB::Parser::File::OPF::Context::Manifest::items_by_media_type' => sub {
     my $manifest = $ep->opf->manifest;
 
     subtest 'single media_type' => sub {
@@ -124,5 +124,6 @@ subtest 'items_by_media_type' => sub {
     };
 
 };
+
 
 done_testing;

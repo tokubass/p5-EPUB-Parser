@@ -16,7 +16,7 @@ my @list = $guide->list;
 is(scalar @list, 3, 'size');
 is(ref $list[0], 'XML::LibXML::Element', 'list element class');
 
-subtest 'guide list' => sub {
+subtest 'EPUB::Parser::File::OPF::Context::Guide::list' => sub {
     is_deeply(\@list,  [
         '<reference type="cover" title="表紙" href="cover.xhtml"/>',
         '<reference type="text" title="スタートページ" href="bodymatter_0_0.xhtml"/>',
