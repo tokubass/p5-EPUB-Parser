@@ -1,0 +1,21 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use EPUB::Parser;
+use JSON::PP;
+
+my $file_path = shift or die 'please input epub file';
+
+my $ep = EPUB::Parser->new->load_file({ file_path => $file_path });
+my $meta = $ep->opf->metadata;
+
+my $json_coder = JSON::PP->new->utf8->pretty;
+
+print $json_coder->encode({
+    title       => $meta->title,
+    creator     => $meta->creator,
+    language    => $meta->language,
+    identifier  => $meta->identifier,
+});
+
+__END__
