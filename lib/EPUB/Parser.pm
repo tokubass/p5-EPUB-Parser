@@ -8,9 +8,12 @@ use EPUB::Parser::Util::Archive;
 use EPUB::Parser::File::OPF;
 use EPUB::Parser::File::Navi;
 use EPUB::Parser::Manager::Pages;
+use EPUB::Parser::Util::ShortcutMethod qw/
+    title creator language identifier
+/;
+
 
 our $VERSION = "0.03";
-
 
 sub new {
     my $class = shift;
