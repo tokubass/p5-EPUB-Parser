@@ -13,7 +13,7 @@ is($ep->navi->path, 'OEBPS/nav.xhtml', 'path');
 ok( length $ep->navi->data, 'data');
 is( ref $ep->navi->parser, 'EPUB::Parser::File::Parser::Navi', 'parser');
 
-is_deeply($ep->navi->toc->list, [
+is_deeply(scalar $ep->navi->toc->list, [
     { title => 'このコンテンツについて', href => 'bodymatter_0_0.xhtml#toc_index_1' },
     { title => '一',                     href => 'bodymatter_0_1.xhtml#toc_index_1' },
     { title => '二',                     href => 'bodymatter_0_2.xhtml#toc_index_1' },
