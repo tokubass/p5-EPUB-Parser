@@ -20,7 +20,7 @@ sub list {
         };
     }
 
-    return \@list;
+    return wantarray ? @list : \@list;
 }
 
 1;
