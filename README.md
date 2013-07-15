@@ -16,18 +16,18 @@
     my $version = $ep->opf->guess_version;
 
     # get css. Return value is 'EPUB::Parser::Util::Archive::Iterator' object.
-    my $itr = $ep->opf->manifest->items_by_media_type({ regexp => qr{text/css}ix });
+    my $itr = $ep->items_by_media_type({ regexp => qr{text/css}ix });
     while ( my $zip_member = $itr->next ) {
         $zip_member->data;
         $zip_member->path;
     }
 
     # shortcut method. iterator object contain image,audio,video item path.
-    my $itr = $ep->opf->manifest->items_by_media;
+    my $itr = $ep->items_by_media;
 
     # get list under <nav id="toc" epub:type="toc"> 
     # todo: parse nested list
-    for my $chapter ( @{$ep->navi->toc->list} ) {
+    for my $chapter ( $ep->toc_list ) {
         $chapter->{title};
         $chapter->{href};
     }
