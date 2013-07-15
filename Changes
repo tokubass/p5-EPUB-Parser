@@ -2,6 +2,12 @@ Revision history for Perl extension EPUB-Parser
 
 {{$NEXT}}
 
+0.04 2013-07-15T07:30:54Z
+
+    - add shortcut method to EPUB::Parser
+    - $self->navi->toc->list have wantarray context
+    - add epub-parser script file
+
 0.03 2013-06-21T06:30:08Z
 
     - Document fix
