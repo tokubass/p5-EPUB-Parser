@@ -2,6 +2,10 @@ Revision history for Perl extension EPUB-Parser
 
 {{$NEXT}}
 
+0.05 2013-08-05T13:43:20Z
+
+    - Fixbug: It failed to get xmlns:dc
+
 0.04 2013-07-15T07:30:54Z
 
     - add shortcut method to EPUB::Parser

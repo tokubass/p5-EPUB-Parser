@@ -15,7 +15,7 @@ use EPUB::Parser::Util::ShortcutMethod qw/
 /;
 
 
-our $VERSION = "0.04";
+our $VERSION = "0.05";
 
 sub new {
     my $class = shift;
