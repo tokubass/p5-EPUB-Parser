@@ -31,6 +31,10 @@ sub set_metadata_namespace {
 
     my $meta_element = $self->{parser}->findnodes('/pkg:package/pkg:metadata')->[0];
     my $dc_ns = $meta_element->getAttribute('xmlns:dc');
+    unless ($dc_ns) {
+        $dc_ns = $self->{parser}->findnodes('/pkg:package')->[0]->getAttribute('xmlns:dc');
+    }
+
     $self->{parser}->registerNs( dc => $dc_ns );
 }
 
