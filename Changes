@@ -2,6 +2,8 @@ Revision history for Perl extension EPUB-Parser
 
 {{$NEXT}}
 
+    - Fixbug: remove MYMETA.json (thanks chorny)
+
 0.05 2013-08-05T13:43:20Z
 
     - Fixbug: It failed to get xmlns:dc

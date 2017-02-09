@@ -72,7 +72,7 @@
          "web" : "https://github.com/tokubass/p5-EPUB-Parser"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_contributors" : [
       "tokubass <tokubass@cpan.org>"
    ]
