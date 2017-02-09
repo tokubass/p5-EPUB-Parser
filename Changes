@@ -2,6 +2,8 @@ Revision history for Perl extension EPUB-Parser
 
 {{$NEXT}}
 
+0.06 2017-02-09T09:20:32Z
+
     - Fixbug: remove MYMETA.json (thanks chorny)
 
 0.05 2013-08-05T13:43:20Z
