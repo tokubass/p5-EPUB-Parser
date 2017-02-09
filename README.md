@@ -75,11 +75,11 @@ Creates a new EPUB::Parser instance. Valid options are:
 
 ## opf
 
-Returns instance of [EPUB::Parser::File::OPF](http://search.cpan.org/perldoc?EPUB::Parser::File::OPF).
+Returns instance of [EPUB::Parser::File::OPF](https://metacpan.org/pod/EPUB::Parser::File::OPF).
 
 ## navi
 
-Returns instance of [EPUB::Parser::File::Navi](http://search.cpan.org/perldoc?EPUB::Parser::File::Navi).
+Returns instance of [EPUB::Parser::File::Navi](https://metacpan.org/pod/EPUB::Parser::File::Navi).
 
 ## data\_from\_path($path)
 
@@ -87,7 +87,7 @@ get blob from loaded EPUB with path indicated in $path.
 
 ## pages\_manager
 
-Returns instance of [EPUB::Parser::Manager::Pages](http://search.cpan.org/perldoc?EPUB::Parser::Manager::Pages).
+Returns instance of [EPUB::Parser::Manager::Pages](https://metacpan.org/pod/EPUB::Parser::Manager::Pages).
 
 ## load\_file({ file\_path  => 'sample.epub' })
 
@@ -106,4 +106,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-tokubass <tokubass {at} cpan.org>
+tokubass &lt;tokubass {at} cpan.org>
