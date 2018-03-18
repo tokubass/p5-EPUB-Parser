@@ -2,6 +2,9 @@ Revision history for Perl extension EPUB-Parser
 
 {{$NEXT}}
 
+    - Fixbug: calling function on undefined object (thanks lameventanas)
+      Merge pull request #4 from lameventanas/master
+
 0.06 2017-02-09T09:20:32Z
 
     - Fixbug: remove MYMETA.json (thanks chorny)
